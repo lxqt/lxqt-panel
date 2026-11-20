@@ -20,7 +20,7 @@
         <location filename="../treewindow.ui" line="63"/>
         <location filename="../treewindow.ui" line="96"/>
         <source>Property</source>
-        <translation>Rekvizīts/īpašība</translation>
+        <translation>Īpašība</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="68"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../treewindow.ui" line="76"/>
         <source>All properties</source>
-        <translation>Visi rekvizīti/īpašības</translation>
+        <translation>Visas īpašības</translation>
     </message>
     <message>
         <location filename="../treewindow.ui" line="101"/>

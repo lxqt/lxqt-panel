@@ -11,12 +11,12 @@
     <message>
         <location filename="../lxqtmainmenu.cpp" line="118"/>
         <source>Show/hide main menu</source>
-        <translation>Rādīt/nerādīt galveno izvēlni</translation>
+        <translation>Rādīt/slēpt galveno izvēlni</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="469"/>
         <source>Add to desktop</source>
-        <translation>Likt uz darbvirsmas</translation>
+        <translation>Pievienot darbvirsmai</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="477"/>
@@ -27,8 +27,8 @@
         <location filename="../lxqtmainmenu.cpp" line="478"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>Fails ar šādu nosaukumu jau pastāv.
-Vēlaties tam pārrakstīt pa virsu?</translation>
+        <translation>Fails ar tādu pašu nosaukumu jau pastāv.
+Vai vēlaties to pārrakstīt?</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="484"/>
@@ -38,7 +38,7 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="485"/>
         <source>The file cannot be overwritten.</source>
-        <translation>Fails nevar tikt pārrakstīts (pa virsu).</translation>
+        <translation>Failu nevar pārrakstīt.</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenu.cpp" line="491"/>
@@ -51,7 +51,7 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Vispārīgie</translation>
+        <translation>Vispārīgi</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="14"/>
@@ -71,12 +71,12 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
-        <translation>Pielāgots šrifta izmērs:</translation>
+        <translation>Pielāgots fonta izmērs:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="77"/>
         <source> pt</source>
-        <translation> pnkt.</translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="96"/>
@@ -96,63 +96,64 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="181"/>
         <source>Max. item width:</source>
-        <translation>Maksimālais vienības platums:</translation>
+        <translation>Maksimālais vienuma platums:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="160"/>
         <source>Show matching entries:</source>
-        <translation>Parādīt sakrītošos ierakstus/punktus:</translation>
+        <translation>Rādīt atbilstošos ierakstus:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="167"/>
         <source>Maximum visible items:</source>
-        <translation>Redzamo elementu maks. skaits:</translation>
+        <translation>Maksimālais redzamo vienumu skaits:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="153"/>
         <source>Filter menu entries</source>
-        <translation>Filtrēt izvēlnes elementus/punktus</translation>
+        <translation>Filtrēt izvēlnes ierakstus</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="188"/>
         <source> px</source>
-        <translation> pikseļi</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="201"/>
         <source>Hide menu entries while searching</source>
-        <translation>Nerādīt izvēlnes punktus/elementus meklēšanas laikā</translation>
+        <translation>Meklēšanas laikā slēpt izvēlnes ierakstus</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="208"/>
         <source>Clear search upon showing menu</source>
-        <translation>Notīrīt meklēšanas lauku, kad tiek rādīta izvēlne</translation>
+        <translation>Rādot izvēlni, notīrīt meklēšanu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="118"/>
         <source>Keyboard Shortcut</source>
-        <translation>Tastatūras īsceļi</translation>
+        <translation>Īsinājumtaustiņš</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.ui" line="124"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Nospiediet pogu, lai ierakstītu īsceļu:</translation>
+        <translation>Noklikšķiniet uz pogas, lai ierakstītu īsinājumtaustiņu:</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="79"/>
         <source>Reset</source>
-        <translation>Atstatīt</translation>
+        <translation>Atiestatīt</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="137"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Wayland vidē kompozitora iestatījumos mainiet vai pievienojiet
+īsinājumtaustiņu komandai „lxqt-qdbus openmenu”</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="184"/>
         <source>Choose icon file</source>
-        <translation>Izvēlēties ikonas failu</translation>
+        <translation>Izvēlieties ikonas failu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="186"/>
@@ -162,7 +163,7 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="198"/>
         <source>Choose menu file</source>
-        <translation>Izvēlēties izvēlnes failu</translation>
+        <translation>Izvēlieties izvēlnes failu</translation>
     </message>
     <message>
         <location filename="../lxqtmainmenuconfiguration.cpp" line="200"/>

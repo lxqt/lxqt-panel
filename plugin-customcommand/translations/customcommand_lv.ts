@@ -6,12 +6,12 @@
     <message>
         <location filename="../colorLabel.cpp" line="36"/>
         <source>Click to change color</source>
-        <translation type="unfinished"></translation>
+        <translation>Noklikšķiniet, lai mainītu krāsu</translation>
     </message>
     <message>
         <location filename="../colorLabel.cpp" line="65"/>
         <source>Select Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Izvēlieties krāsu</translation>
     </message>
 </context>
 <context>
@@ -19,27 +19,27 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="14"/>
         <source>Custom Command Configuration</source>
-        <translation>Pielāgotās komandas iestatīšana</translation>
+        <translation>Pielāgotās komandas konfigurēšana</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="20"/>
         <source>Display</source>
-        <translation>Rādīt/ekrāns</translation>
+        <translation>Attēlošana</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="344"/>
         <source>Use icon from theme or browse file</source>
-        <translation>Izmantot ikonu no tēmas vai izvēlēt failu</translation>
+        <translation>Izmantot ikonu no motīva vai izvēlēties failu</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="138"/>
         <source>Run with &quot;bash -c&quot;</source>
-        <translation>Palaist ar &quot;bash -c&quot;</translation>
+        <translation>Palaist ar „bash -c”</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="148"/>
         <source>Select Font</source>
-        <translation>Izvēlēt šriftu</translation>
+        <translation>Izvēlieties fontu</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="321"/>
@@ -54,13 +54,13 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="207"/>
         <source>Font</source>
-        <translation>Šrifts</translation>
+        <translation>Fonts</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="95"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="117"/>
         <source> px</source>
-        <translation> piks.</translation>
+        <translation> px</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="304"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="307"/>
         <source>Use %1 to display command output</source>
-        <translation>Izmantojiet %1, lai parādītu komandas izvadu</translation>
+        <translation>Lai parādītu komandas izvadi, izmantojiet %1</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="214"/>
@@ -80,7 +80,7 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="334"/>
         <source>Browse</source>
-        <translation>Izvēlēt/pārlūkot</translation>
+        <translation>Pārlūkot</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="200"/>
@@ -90,17 +90,17 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="43"/>
         <source>Output format:</source>
-        <translation type="unfinished"></translation>
+        <translation>Izvades formāts:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="50"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="177"/>
         <source>echo Configure...</source>
-        <translation>echo iestatīšana...</translation>
+        <translation>echo Konfigurēt...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="183"/>
@@ -108,7 +108,7 @@
         <location filename="../lxqtcustomcommandconfiguration.ui" line="399"/>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="416"/>
         <source>Command to run</source>
-        <translation>Komanda, kuru palaist</translation>
+        <translation>Palaižamā komanda</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="266"/>
@@ -118,42 +118,42 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="158"/>
         <source>Text Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Teksta krāsa</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="28"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Atiestatīt</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="92"/>
         <source>min: </source>
-        <translation type="unfinished"></translation>
+        <translation>min.: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="114"/>
         <source>max: </source>
-        <translation type="unfinished"></translation>
+        <translation>maks.: </translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="190"/>
         <source>Width</source>
-        <translation type="unfinished"></translation>
+        <translation>Platums</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="282"/>
         <source> second(s)</source>
-        <translation> sekunde(s)</translation>
+        <translation> s</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="314"/>
         <source>Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Paskaidre</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="351"/>
         <source>Continuous output (processed line by line)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepārtraukta izvade (apstrādā pa rindām)</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="366"/>
@@ -163,142 +163,142 @@
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="372"/>
         <source>Click</source>
-        <translation>Klikšķiniet</translation>
+        <translation>Klikšķis</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="389"/>
         <source>Wheel Up</source>
-        <translation>Ritentiņu augšup</translation>
+        <translation>Ritenītis augšup</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.ui" line="406"/>
         <source>Wheel Down</source>
-        <translation>Ritentiņu lejup</translation>
+        <translation>Ritenītis lejup</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="37"/>
         <source>command outputs plain text to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>komanda izvada vienkāršu tekstu, ko izmantot kā pogas tekstu</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="38"/>
         <source>command outputs icon in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>komanda izvada ikonu šādā formā:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="39"/>
         <source>theme name</source>
-        <translation type="unfinished"></translation>
+        <translation>motīva nosaukums</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="40"/>
         <source>name of icon resolved to image based on XDG spec</source>
-        <translation type="unfinished"></translation>
+        <translation>ikonas nosaukums, ko pārvērš attēlā atbilstoši XDG specifikācijai</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="41"/>
         <source>image file path</source>
-        <translation type="unfinished"></translation>
+        <translation>attēla faila ceļš</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="42"/>
         <source>image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>attēla datu straume</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="43"/>
         <source>plain image stream</source>
-        <translation type="unfinished"></translation>
+        <translation>vienkārša attēla straume</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="44"/>
         <source>base64 encoded image data stream</source>
-        <translation type="unfinished"></translation>
+        <translation>base64 kodēta attēla datu straume</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="45"/>
         <source>as above but base64 encoded</source>
-        <translation type="unfinished"></translation>
+        <translation>kā iepriekš, bet base64 kodēts</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="46"/>
         <source>command outputs structured variables to be used for button visualization in form of:</source>
-        <translation type="unfinished"></translation>
+        <translation>komanda izvada strukturētus mainīgos pogas attēlošanai šādā formā:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="47"/>
         <source>name1:base64value1 name2:base64value2  ...</source>
-        <translation type="unfinished"></translation>
+        <translation>name1:base64value1 name2:base64value2  ...</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="48"/>
         <source>Handled names are:</source>
-        <translation type="unfinished"></translation>
+        <translation>Apstrādātie nosaukumi:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="49"/>
         <source>string to be used as text of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>virkne, ko izmantot kā pogas tekstu</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="50"/>
         <source>icon to be shown in the button, in the same form as explained before</source>
-        <translation type="unfinished"></translation>
+        <translation>ikona, ko rādīt pogā, tādā pašā formā kā aprakstīts iepriekš</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="51"/>
         <source>string to be used as tooltip of the button</source>
-        <translation type="unfinished"></translation>
+        <translation>virkne, ko izmantot kā pogas paskaidri</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="52"/>
         <source>All values should be encoded in base64</source>
-        <translation type="unfinished"></translation>
+        <translation>Visām vērtībām jābūt kodētām base64</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="53"/>
         <source>Example of script generating structured output:</source>
-        <translation type="unfinished"></translation>
+        <translation>Skripta piemērs, kas ģenerē strukturētu izvadi:</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="54"/>
         <source>My Text</source>
-        <translation type="unfinished"></translation>
+        <translation>Mans teksts</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="55"/>
         <source>my_image</source>
-        <translation type="unfinished"></translation>
+        <translation>mans_attels</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="56"/>
         <source>My Tooltip</source>
-        <translation type="unfinished"></translation>
+        <translation>Mana paskaidre</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="63"/>
         <source>Text only</source>
-        <translation type="unfinished"></translation>
+        <translation>Tikai teksts</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="64"/>
         <source>Icon only</source>
-        <translation type="unfinished"></translation>
+        <translation>Tikai ikona</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="65"/>
         <source>Structured</source>
-        <translation type="unfinished"></translation>
+        <translation>Strukturēts</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Select Icon File</source>
-        <translation type="unfinished"></translation>
+        <translation>Izvēlieties ikonas failu</translation>
     </message>
     <message>
         <location filename="../lxqtcustomcommandconfiguration.cpp" line="278"/>
         <source>Images (*.png *.svg *.xpm *.jpg)</source>
-        <translation type="unfinished"></translation>
+        <translation>Attēli (*.png *.svg *.xpm *.jpg)</translation>
     </message>
 </context>
 </TS>

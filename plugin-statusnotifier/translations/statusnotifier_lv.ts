@@ -11,13 +11,13 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="25"/>
         <source>Reverse the order of items</source>
-        <translation type="unfinished"></translation>
+        <translation>Apgriezt vienumu secību</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="39"/>
         <location filename="../statusnotifierconfiguration.ui" line="49"/>
         <source>An auto-hiding item will remain visible for this period if it needs attention.</source>
-        <translation>Automātiski paslēpjamais elements būs redzams šo laika sprīdi, ja tam būs nepieciešama uzmanība.</translation>
+        <translation>Automātiski slēpts vienums paliks redzams šo laiku, ja tam nepieciešama uzmanība.</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="42"/>
@@ -27,17 +27,17 @@
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="52"/>
         <source> minute(s)</source>
-        <translation> minūte(s)</translation>
+        <translation> min</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="83"/>
         <source>Change visibility of items</source>
-        <translation>Mainīt elementu redzamību</translation>
+        <translation>Mainīt vienumu redzamību</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="96"/>
         <source>Item</source>
-        <translation>Elements</translation>
+        <translation>Vienums</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.ui" line="101"/>
@@ -52,12 +52,12 @@
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Auto-hide</source>
-        <translation>Automātiski paslēpt</translation>
+        <translation>Automātiski slēpt</translation>
     </message>
     <message>
         <location filename="../statusnotifierconfiguration.cpp" line="87"/>
         <source>Always hide</source>
-        <translation>Paslēpt vienmēr</translation>
+        <translation>Vienmēr slēpt</translation>
     </message>
 </context>
 </TS>
