@@ -93,6 +93,10 @@ LXQtFancyMenuConfiguration::LXQtFancyMenuConfiguration(PluginSettings *settings,
         this->settings().setValue(QStringLiteral("autoSelDelay"), value);
     });
 
+    connect(ui->searchDelaySB, &QSpinBox::valueChanged, this, [this] (int value) {
+        this->settings().setValue(QStringLiteral("searchDelay"), value);
+    });
+
     connect(mShortcut, &GlobalKeyShortcut::Action::shortcutChanged, this, &LXQtFancyMenuConfiguration::globalShortcutChanged);
 
     connect(ui->filterClearCB, &QCheckBox::toggled, this, [this] (bool value) {
@@ -154,6 +158,8 @@ void LXQtFancyMenuConfiguration::loadSettings()
 
     ui->autoSelSB->setValue(settings().value(QStringLiteral("autoSelDelay"), 250).toInt());
     ui->autoSelCB->setChecked(settings().value(QStringLiteral("autoSel"), false).toBool());
+
+    ui->searchDelaySB->setValue(settings().value(QStringLiteral("searchDelay"), 350).toInt());
 
     bool buttonsAtTop = settings().value(QStringLiteral("buttonsAtTop"), false).toBool();
     int buttRowPosIdx = ui->buttRowPosCB->findData(buttonsAtTop ? LXQtFancyMenuButtonPosition::Top : LXQtFancyMenuButtonPosition::Bottom);
