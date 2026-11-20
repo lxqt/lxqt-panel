@@ -30,15 +30,15 @@
 #ifndef LXQTQUICKLAUNCH_H
 #define LXQTQUICKLAUNCH_H
 
+#include "quicklaunchbutton.h"
+#include "quicklaunchaction.h"
 #include "../panel/lxqtpanel.h"
 #include <QHash>
 #include <QString>
 
 
 class XdgDesktopFile;
-class QuickLaunchAction;
 class QDragEnterEvent;
-class QuickLaunchButton;
 class QSettings;
 class QLabel;
 

@@ -31,6 +31,7 @@
 #ifndef LXQTTASKPOPUP_H
 #define LXQTTASKPOPUP_H
 
+#include "lxqttaskgroup.h"
 #include <QHash>
 #include <QFrame>
 #include <QLayout>
