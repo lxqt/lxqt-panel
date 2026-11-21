@@ -62,7 +62,8 @@ ColorPicker::ColorPicker(const ILXQtPanelPluginStartupInfo &startupInfo) :
     connect(&mWidget, &ColorPickerWidget::showMenuRequested, this, [&](QMenu *menu)
     {
         willShowWindow(menu);
-        menu->popup(calculatePopupWindowPos(menu->sizeHint()).topLeft());
+        menu->setGeometry(QRect(calculatePopupWindowPos(menu->sizeHint()).topLeft(), menu->sizeHint()));
+        menu->show();
     });
 
     realign();
