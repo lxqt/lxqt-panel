@@ -235,7 +235,9 @@ LXQtTaskbarWayfireBackend::LXQtTaskbarWayfireBackend(QObject *parent) :
         int curRow = outputWS[QSL("y")].toInt(); // Current workspace row (0-based)
         int curCol = outputWS[QSL("x")].toInt(); // Current workspace column (0-based)
 
-        emit currentWorkspaceChanged(curRow * nCols + curCol + 1, outputName);
+        // No output name: the switcher follows the active output,
+        // so it must not be filtered by the panel's screen name
+        emit currentWorkspaceChanged(curRow * nCols + curCol + 1, QString());
     });
 
     connect(mWayfire.get(), &LXQt::Panel::Wayfire::viewMapped, [this] ( QJsonDocument respJson )
