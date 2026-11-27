@@ -6,13 +6,13 @@
     <message>
         <location filename="../desktopswitch.cpp" line="109"/>
         <source>Switch to desktop %1</source>
-        <translation>Pārslēgt uz darbvirsmu %1</translation>
+        <translation>Pārslēgties uz darba vietu %1</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="185"/>
         <location filename="../desktopswitch.cpp" line="195"/>
         <source>Desktop %1</source>
-        <translation>Darbvirsma %1</translation>
+        <translation>Darba vieta %1</translation>
     </message>
 </context>
 <context>
@@ -20,7 +20,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="14"/>
         <source>DesktopSwitch Settings</source>
-        <translation>Darbvirsmas pārslēdža iestatījumi</translation>
+        <translation>Darba vietu pārslēdzēja iestatījumi</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="46"/>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="39"/>
         <source>Desktop labels:</source>
-        <translation>Darbvirsmu birkas:</translation>
+        <translation>Darba vietu etiķetes:</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="20"/>
@@ -50,32 +50,32 @@
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="64"/>
         <source>None</source>
-        <translation>Bez atzīmēm/birkām</translation>
+        <translation>Nav</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="72"/>
         <source>If checked, widget will be just an indicator</source>
-        <translation>Ja atzīmēts, logrīks/vidžets darbosies kā vienkāršs indikators</translation>
+        <translation>Ja atzīmēts, logrīks būs tikai indikators</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="75"/>
         <source>Show only active desktop</source>
-        <translation>Rādīt tikai aktīvo darbvirsmu</translation>
+        <translation>Rādīt tikai aktīvo darba vietu</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.ui" line="85"/>
         <source>Desktop names</source>
-        <translation>Darbvirsmu nosaukumi</translation>
+        <translation>Darba vietu nosaukumi</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="80"/>
         <source>Desktop %1</source>
-        <translation type="unfinished">Darbvirsma %1</translation>
+        <translation>Darba vieta %1</translation>
     </message>
     <message>
         <location filename="../desktopswitchconfiguration.cpp" line="82"/>
         <source>Desktop %1:</source>
-        <translation>Darbvirsma/darbalauks %1:</translation>
+        <translation>Darba vieta %1:</translation>
     </message>
 </context>
 <context>
@@ -83,12 +83,12 @@
     <message>
         <location filename="../desktopswitch.cpp" line="358"/>
         <source>n/a</source>
-        <translation type="unfinished"></translation>
+        <translation>nav pieejams</translation>
     </message>
     <message>
         <location filename="../desktopswitch.cpp" line="360"/>
         <source>DesktopSwitch is unsupported on current platform: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Darba vietu pārslēdzējs pašreizējā platformā netiek atbalstīts: %1</translation>
     </message>
 </context>
 </TS>

@@ -6,27 +6,27 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="65"/>
         <source>Increase sound volume</source>
-        <translation>Skaļināt</translation>
+        <translation>Palielināt skaļumu</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="71"/>
         <source>Decrease sound volume</source>
-        <translation>Klusināt</translation>
+        <translation>Samazināt skaļumu</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="77"/>
         <source>Mute/unmute sound volume</source>
-        <translation>Iesl./izsl. skaņu</translation>
+        <translation>Izslēgt/ieslēgt skaņu</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="138"/>
         <source>Volume Control: The following shortcuts can not be registered: %1</source>
-        <translation>Skaļuma vadība: nevar reģistrēt šādus īsceļus: %1</translation>
+        <translation>Skaļuma regulēšana: neizdevās reģistrēt šos īsinājumtaustiņus: %1</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="314"/>
         <source>%1: %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: %2%</translation>
     </message>
     <message>
         <location filename="../lxqtvolume.cpp" line="349"/>
@@ -36,7 +36,7 @@
     <message>
         <location filename="../lxqtvolume.cpp" line="349"/>
         <source>(muted)</source>
-        <translation>(noklusināts/bez skaņas)</translation>
+        <translation>(izslēgta skaņa)</translation>
     </message>
 </context>
 <context>
@@ -44,12 +44,12 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="14"/>
         <source>Volume Control Settings</source>
-        <translation>Skaļuma vadības iestatījumi</translation>
+        <translation>Skaļuma regulēšanas iestatījumi</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="20"/>
         <source>Device to control</source>
-        <translation>Vadāmā ierīce</translation>
+        <translation>Regulējamā ierīce</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="28"/>
@@ -74,22 +74,22 @@
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="63"/>
         <source>Mute on middle click</source>
-        <translation>Izslēgt skaņu, noklikšķinot ar peles vidējo pogu</translation>
+        <translation>Izslēgt skaņu ar vidējo klikšķi</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="70"/>
         <source>Allow volume beyond 100% (0dB)</source>
-        <translation>Ļaut skaļumam pārsniegt 100% (0 db)</translation>
+        <translation>Atļaut skaļumu virs 100% (0 dB)</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="77"/>
         <source>Always notify about volume changes</source>
-        <translation>Vienmēr informēt par skaļuma izmaiņām</translation>
+        <translation>Vienmēr paziņot par skaļuma izmaiņām</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="84"/>
         <source>Notify about volume changes with keyboard</source>
-        <translation>Paziņot par skaļuma izmaiņām, veiktām ar tastatūru</translation>
+        <translation>Paziņot par skaļuma izmaiņām ar tastatūru</translation>
     </message>
     <message>
         <location filename="../lxqtvolumeconfiguration.ui" line="99"/>
@@ -117,18 +117,18 @@
     <message>
         <location filename="../volumepopup.cpp" line="539"/>
         <source>Mute</source>
-        <translation type="unfinished"></translation>
+        <translation>Izslēgt skaņu</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="545"/>
         <location filename="../volumepopup.cpp" line="566"/>
         <source>Set as default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Iestatīt kā noklusējuma izvadi</translation>
     </message>
     <message>
         <location filename="../volumepopup.cpp" line="566"/>
         <source>Default output</source>
-        <translation type="unfinished"></translation>
+        <translation>Noklusējuma izvade</translation>
     </message>
 </context>
 </TS>

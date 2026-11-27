@@ -11,17 +11,17 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="30"/>
         <source>Common</source>
-        <translation>Kopējie</translation>
+        <translation>Kopīgie</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="42"/>
         <source>Update interval (seconds)</source>
-        <translation>Atsvaidzināšanas intervāls (sekundes)</translation>
+        <translation>Atjaunināšanas intervāls (sekundēs)</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="74"/>
         <source>Temperature bar width</source>
-        <translation>Temperatūras stabiņa platums</translation>
+        <translation>Temperatūras joslas platums</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="110"/>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="91"/>
         <source>Blink status bars when the temperature is too high</source>
-        <translation>Statusa stabiņus/joslas mirgot/mirkšķināt, kad temperatūra pārāk augsta</translation>
+        <translation>Mirgot statusa joslām, ja temperatūra ir pārāk augsta</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="97"/>
@@ -56,22 +56,22 @@
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="158"/>
         <source>Detected chips:</source>
-        <translation>Identificētie čipi:</translation>
+        <translation>Atrastās mikroshēmas:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.ui" line="175"/>
         <source>Chip features:</source>
-        <translation>Čipu iespējas:</translation>
+        <translation>Mikroshēmu iespējas:</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Enabled</source>
-        <translation>Iespējots/ieslēgts</translation>
+        <translation>Iespējots</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
         <source>Label</source>
-        <translation>Birka/etiķete</translation>
+        <translation>Etiķete</translation>
     </message>
     <message>
         <location filename="../lxqtsensorsconfiguration.cpp" line="206"/>
