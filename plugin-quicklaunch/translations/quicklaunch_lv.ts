@@ -6,18 +6,19 @@
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="230"/>
         <source>Drop Error</source>
-        <translation>Pārvilkšanas kļūme</translation>
+        <translation>Nomešanas kļūda</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="231"/>
         <source>File/URL &apos;%1&apos; cannot be embedded into QuickLaunch for now</source>
-        <translation>Fails/URL &apos;%1&apos; pašreiz nevar tik ieligzdots ātrajā palaidējā QuickLaunch</translation>
+        <translation>Failu/URL „%1” pašlaik nevar iegult ātrajā palaidējā</translation>
     </message>
     <message>
         <location filename="../lxqtquicklaunch.cpp" line="337"/>
         <source>Drop application
 icons here</source>
-        <translation>Pārvelciet lietotņu ikonas uz šejieni</translation>
+        <translation>Nometiet lietotņu
+ikonas šeit</translation>
     </message>
 </context>
 <context>
@@ -25,27 +26,27 @@ icons here</source>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="55"/>
         <source>(Ctrl + DND)</source>
-        <translation>(Ctrl + Pārvilkt)</translation>
+        <translation>(Ctrl + vilkšana)</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="57"/>
         <source>Move left</source>
-        <translation>Pa kreisi virzīt</translation>
+        <translation>Pārvietot pa kreisi</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="60"/>
         <source>Move right</source>
-        <translation>Pa labi virzīt</translation>
+        <translation>Pārvietot pa labi</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="63"/>
         <source>Remove from quicklaunch</source>
-        <translation>Noņemt no ātrpalaidēja Quicklaunch</translation>
+        <translation>Noņemt no ātrā palaidēja</translation>
     </message>
     <message>
         <location filename="../quicklaunchbutton.cpp" line="72"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>Atsvaidzināt</translation>
     </message>
 </context>
 </TS>

@@ -14,7 +14,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="14"/>
         <source>World Clock Settings</source>
-        <translation>Pasaules laika iestatījumi</translation>
+        <translation>Pasaules pulksteņa iestatījumi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="24"/>
@@ -36,14 +36,14 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="176"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="272"/>
         <source>Short</source>
-        <translation>Īsais</translation>
+        <translation>Īss</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="55"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="181"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="277"/>
         <source>Long</source>
-        <translation>Garais</translation>
+        <translation>Garš</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="60"/>
@@ -59,17 +59,17 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="96"/>
         <source>Pad &amp;hour with zero</source>
-        <translation>Stundām pievienot &amp;nulli</translation>
+        <translation>Papildināt stundu ar &amp;nulli</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="116"/>
         <source>T&amp;ime zone</source>
-        <translation>La&amp;ika zona</translation>
+        <translation>Laika &amp;josla</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="128"/>
         <source>&amp;Position:</source>
-        <translation>&amp;Izvietojums/pozīcija:</translation>
+        <translation>No&amp;vietojums:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="138"/>
@@ -80,13 +80,13 @@
         <location filename="../lxqtworldclockconfiguration.ui" line="149"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="238"/>
         <source>Below</source>
-        <translation>Zemāk/zem</translation>
+        <translation>Zem</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="154"/>
         <location filename="../lxqtworldclockconfiguration.ui" line="243"/>
         <source>Above</source>
-        <translation>Augstāk/virs</translation>
+        <translation>Virs</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="159"/>
@@ -103,7 +103,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="186"/>
         <source>Offset from UTC</source>
-        <translation>Nobīde pret UTC</translation>
+        <translation>Nobīde no UTC</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="191"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="103"/>
         <source>&amp;Use 12-hour format</source>
-        <translation>&amp;Lietot 12-stundu formātu</translation>
+        <translation>&amp;Izmantot 12 stundu formātu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="196"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="227"/>
         <source>Po&amp;sition:</source>
-        <translation>Pozīcija/atrašanās vieta/izvietojums:</translation>
+        <translation>Novie&amp;tojums:</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="261"/>
@@ -160,37 +160,37 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="323"/>
         <source>Show day of wee&amp;k</source>
-        <translation>Rādīt nedēļas &amp;dienu nosaukumus</translation>
+        <translation>Rādīt nedēļas di&amp;enu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="330"/>
         <source>Pad d&amp;ay with zero</source>
-        <translation>Pievienot dienas datumam n&amp;ulli</translation>
+        <translation>Papildināt dienu ar n&amp;ulli</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="337"/>
         <source>&amp;Long month and day of week names</source>
-        <translation>Mēnešu un nedēļas dienu &amp;garie nosaukumi</translation>
+        <translation>Mēnešu un nedēļas dienu g&amp;arie nosaukumi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="350"/>
         <source>Ad&amp;vanced manual format</source>
-        <translation>Progresī&amp;vais (advancētais) manuālais formāts</translation>
+        <translation>Pa&amp;plašināts manuālais formāts</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="377"/>
         <source>&amp;Customize ...</source>
-        <translation>&amp;Pielāgot...</translation>
+        <translation>Piel&amp;āgot ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="403"/>
         <source>Time &amp;zones</source>
-        <translation>Laka &amp;joslas</translation>
+        <translation>Laika &amp;joslas</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="446"/>
         <source>&amp;Add ...</source>
-        <translation>&amp;Pielikt/pievienot...</translation>
+        <translation>&amp;Pievienot ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="456"/>
@@ -200,52 +200,52 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="466"/>
         <source>Set as &amp;default</source>
-        <translation>Iestatīt par &amp;noklusēto</translation>
+        <translation>Iestatīt kā noklu&amp;sējumu</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="476"/>
         <source>&amp;Edit custom name ...</source>
-        <translation>R&amp;ediģēt pielāgoto nosaukumu...</translation>
+        <translation>&amp;Rediģēt pielāgoto nosaukumu ...</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="486"/>
         <source>Move &amp;up</source>
-        <translation>&amp;Augstāk virzīt</translation>
+        <translation>Pārvietot &amp;augšup</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="496"/>
         <source>Move do&amp;wn</source>
-        <translation>&amp;Zemāk virzīt</translation>
+        <translation>Pārvietot &amp;lejup</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="518"/>
         <source>Change displayed time zone with mouse wheel</source>
-        <translation type="unfinished"></translation>
+        <translation>Mainīt attēloto laika joslu ar peles ritenīti</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="525"/>
         <source>&lt;b&gt;Note:&lt;/b&gt; Middle-click the clock to view the time and date for all configured timezones.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Piezīme:&lt;/b&gt; lai redzētu laiku un datumu visās konfigurētajās laika joslās, noklikšķiniet uz pulksteņa ar vidējo pogu.</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="536"/>
         <source>&amp;General</source>
-        <translation>Vispārī&amp;gie</translation>
+        <translation>&amp;Vispārīgi</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="542"/>
         <source>Auto&amp;rotate when the panel is vertical</source>
-        <translation>Autopagriešana, kad panelis ir vertikāls</translation>
+        <translation>Automātiski pag&amp;riezt, ja panelis ir vertikāls</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="552"/>
         <source>Show &amp;week numbers in popup calendar</source>
-        <translation>Rādīt nedēļu numurus izlienošajā kalendārā</translation>
+        <translation>Uznirstošajā kalendārā rādīt &amp;nedēļu numurus</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.ui" line="562"/>
         <source>S&amp;how tooltip</source>
-        <translation>Rādīt uznirstošos &amp;padomus</translation>
+        <translation>Rādīt &amp;paskaidri</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="110"/>
@@ -255,7 +255,7 @@
     <message>
         <location filename="../lxqtworldclockconfiguration.cpp" line="592"/>
         <source>Input custom time zone name</source>
-        <translation>Ievadīt pielāgotu laika joslas nosaukumu</translation>
+        <translation>Ievadiet pielāgotu laika joslas nosaukumu</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="14"/>
         <source>World Clock Manual Format Configuration</source>
-        <translation>Manuāla pasaules laika formāta iestatīšana</translation>
+        <translation>Pasaules pulksteņa manuālā formāta konfigurēšana</translation>
     </message>
     <message>
         <location filename="../lxqtworldclockconfigurationmanualformat.ui" line="75"/>
@@ -303,40 +303,39 @@
 &lt;br /&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Any characters in the pattern that are not in the ranges of [&apos;a&apos;..&apos;z&apos;] and [&apos;A&apos;..&apos;Z&apos;] will be treated as quoted text. For instance, characters like &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; and &apos;@&apos; will appear in the resulting time text even they are not enclosed within single quotes. The single quote is used to &apos;escape&apos; letters. Two single quotes in a row, whether inside or outside a quoted sequence, represent a &apos;real&apos; single quote.&lt;/li&gt;&lt;li&gt;Minimal update interval is 1 second. If z or zzz is configured time is shown with the milliseconds fraction, but not updated on millisecond basis (avoiding big performance hit).&lt;/li&gt;&lt;ul&gt;
 </source>
         <translation>&lt;h1&gt;Pielāgota datuma/laika formāta sintakse&lt;/h1&gt;
-&lt;p&gt;Datuma šablons — tā ir simbolu virkne, kuru formatējot, noteiktas rakstzīmes tiek aizstātas ar kalendāro datumu un laiku vai izmantotas datuma ģenerēšanā kalendāram.&lt;/p&gt;
-&lt;p&gt;Tabula satur burtus, ko izmanto šablonos, lai parādītu attiecīgos formātus šajā lokālē, piemēram, &quot;yyyy&quot; — ir gads. Atsevišķi burti var atkārtoties dažādu skaitu reižu. Piemēram, tā kā &quot;y&quot; nozīmē gads, tad vērtība &quot;yy&quot; var izdot &quot;99&quot;, bet &quot;yyyy&quot; — &quot;1999&quot;. Lielākajai daļai skaitlisko lauku atkārtojošos burtu skaits nosaka lauka platumu. Piemēram, &quot;h&quot; ir stunda, un &quot;h&quot; parādīs &quot;5&quot;, bet &quot;hh&quot; — &quot;05&quot;. Dažiem burtiem atkārtojumu skaits norāda, vai izmantot saīsināto vai pilno formu, bet var būt arī citas vērtības, kā norādīts tālāk.&lt;/p&gt;
-&lt;p&gt;Divas vienpēdiņas pēc kārtas, rezultējas kā vienas vienpēdiņas (gan citu vienpēdiņu iekšpusē vai ārpusē). Vienpēdiņās ietvertais teksts nekādi netiek interpretēts (izņemot dubultās vienpēdiņas). Citādi visas latīņu alfabēta rakstzīmes ASCII (no a līdz z un no A līdz Z) ir rezervētas kā sintaktiskie simboli un ir liekami pēdiņā, ja vēlme tos izmantot kā literārās rakstuzīmes/burtus. Turklāt, dažas pieturzīmes ASCII arī var nākotnē kļūt par mainīgajiem (piemēram, &quot;:&quot; tiek interpretēts kā laika atdalītāju, un &quot;/&quot; — kā datuma atdalītājs un rādījumos aizstāti ar attiecīgiem no lokāles atkarīgiem simboliem).&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Datuma šablons ir rakstzīmju virkne, kurā noteiktas rakstzīmju virknes formatējot tiek aizstātas ar kalendāra datuma un laika datiem vai, parsējot, tiek izmantotas kalendāra datu iegūšanai.&lt;/p&gt;
+&lt;p&gt;Zemāk esošajā datuma lauku simbolu tabulā ir rakstzīmes, ko šablonos izmanto, lai parādītu attiecīgajai lokālei piemērotus formātus, piemēram, yyyy gadam. Rakstzīmes var izmantot vairākkārt. Piemēram, ja gadam izmanto y, tad &apos;yy&apos; var dot &apos;99&apos;, bet &apos;yyyy&apos; dod &apos;1999&apos;. Lielākajai daļai skaitlisko lauku rakstzīmju skaits nosaka lauka platumu. Piemēram, ja h ir stunda, tad &apos;h&apos; var dot &apos;5&apos;, bet &apos;hh&apos; dod &apos;05&apos;. Dažām rakstzīmēm skaits nosaka, vai izmantot saīsināto vai pilno formu, taču var būt arī citas iespējas, kā norādīts zemāk.&lt;/p&gt;
+&lt;p&gt;Divas vienpēdiņas apzīmē burtisku vienpēdiņu gan vienpēdiņu iekšpusē, gan ārpusē. Teksts vienpēdiņās netiek nekādi interpretēts (izņemot divas blakus esošas vienpēdiņas). Citādi visi ASCII burti no a līdz z un no A līdz Z ir rezervēti kā sintakses rakstzīmes, un, ja tiem jāapzīmē burtiskas rakstzīmes, tie jāliek pēdiņās. Turklāt dažas ASCII pieturzīmes nākotnē var kļūt mainīgas (piemēram, &quot;:&quot; var tikt interpretēts kā laika atdalītājs un &apos;/&apos; kā datuma atdalītājs, un attēlojumā aizstāti ar attiecīgajām lokālei atbilstošajām rakstzīmēm).&lt;br /&gt;&lt;/p&gt;
 &lt;table border=&quot;1&quot; width=&quot;100%&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
-&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kods&lt;/th&gt;&lt;th&gt;Vērtība&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;diena kā skaitlis bez ievadošās nulles (no 1 līdz 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;diena kā skaitlis ar ievadošo nulli (no 01 līdz 31)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;saīsināts lokalizēts dienas nosaukums (piemēram, &quot;pr.&quot; līdz &quot;sv.&quot;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;pilns lokalizēts dienas nosaukums (piemēram, &quot;pirmdiena&quot; līdz &quot;svētdiena&quot;).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;mēnesis kā skaitlis bez ievadošās nulles (1-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;mēnesis kā skaitlis ar ievadošo nulli (01-12)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;saīsināts lokalizēts mēneša nosaukums (piemēram, no jan līdz dec).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;pilnais lokalizēts mēneša nosaukums (piemēram, no &quot;janvāris&quot; līdz &quot;decembris&quot;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th width=&quot;20%&quot;&gt;Kods&lt;/th&gt;&lt;th&gt;Nozīme&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;d&lt;/td&gt;&lt;td&gt;diena kā skaitlis bez sākuma nulles (1 līdz 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dd&lt;/td&gt;&lt;td&gt;diena kā skaitlis ar sākuma nulli (01 līdz 31)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ddd&lt;/td&gt;&lt;td&gt;saīsināts lokalizēts dienas nosaukums (piemēram, &apos;P&apos; līdz &apos;Sv&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;dddd&lt;/td&gt;&lt;td&gt;pilns lokalizēts dienas nosaukums (piemēram, &apos;pirmdiena&apos; līdz &apos;svētdiena&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;M&lt;/td&gt;&lt;td&gt;mēnesis kā skaitlis bez sākuma nulles (1-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MM&lt;/td&gt;&lt;td&gt;mēnesis kā skaitlis ar sākuma nulli (01-12)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMM&lt;/td&gt;&lt;td&gt;saīsināts lokalizēts mēneša nosaukums (piemēram, &apos;janv.&apos; līdz &apos;dec.&apos;).&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;MMMM&lt;/td&gt;&lt;td&gt;pilns lokalizēts mēneša nosaukums (piemēram, &apos;janvāris&apos; līdz &apos;decembris&apos;).&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;yy&lt;/td&gt;&lt;td&gt;gads kā divciparu skaitlis (00-99)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;gads&lt;/td&gt;&lt;td&gt;gads kā četrciparu skaitlis&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;stunda bez ievadošās nulles (no 0 līdz 23 vai no 1 līdz 12, ja tiek izmantoti AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;stunda ar ievadošo nulli (no 00 līdz 23 vai no 01 līdz 12, ja tiek izmantoti AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;stunda bez ievadošās nulles (no 0 līdz 23, un arī tad, ja izmantojat AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;SS&lt;/td&gt;&lt;td&gt;stunda ar vadošo nulli (no 00 līdz 23, un arī tad, ja izmantojat AM/PM)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minūtes bez ievadošās nulles (no 0 līdz 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minūtes ar ievadošo nulli (no 00 līdz 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;sekundes bez ievadošās nulles (no 0 līdz 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;sekundes ar ievadošo nulli (no 00 līdz 59)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;AP&lt;i&gt;vai&lt;/i&gt;A&lt;/td&gt;&lt;td&gt;, lai izmantotu AM/PM formātu.&lt;b&gt;A/AP&lt;/b&gt;, tiks aizstāts ar &quot;AM&quot; (priekšpusdienā) vai &quot;PM&quot; (pēcpusdienā).&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;ap&lt;i&gt;vai&lt;/i&gt;a&lt;/td&gt;&lt;td&gt;, lai izmantotu am/pm formātu.&lt;b&gt;a/ap&lt;/b&gt;tiks aizstāts ar &quot;am&quot; vai &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;yyyy&lt;/td&gt;&lt;td&gt;gads kā četrciparu skaitlis&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;h&lt;/td&gt;&lt;td&gt;stunda bez sākuma nulles (0 līdz 23 vai 1 līdz 12, ja rāda AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;hh&lt;/td&gt;&lt;td&gt;stunda ar sākuma nulli (00 līdz 23 vai 01 līdz 12, ja rāda AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;stunda bez sākuma nulles (0 līdz 23, arī ja rāda AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;HH&lt;/td&gt;&lt;td&gt;stunda ar sākuma nulli (00 līdz 23, arī ja rāda AM/PM)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;m&lt;/td&gt;&lt;td&gt;minūte bez sākuma nulles (0 līdz 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;mm&lt;/td&gt;&lt;td&gt;minūte ar sākuma nulli (00 līdz 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;s&lt;/td&gt;&lt;td&gt;sekunde bez sākuma nulles (0 līdz 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ss&lt;/td&gt;&lt;td&gt;sekunde ar sākuma nulli (00 līdz 59)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;AP &lt;i&gt;vai&lt;/i&gt; A&lt;/td&gt;&lt;td&gt;rādīt AM/PM. &lt;b&gt;A/AP&lt;/b&gt; tiks aizstāts ar &quot;AM&quot; vai &quot;PM&quot;.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;ap &lt;i&gt;vai&lt;/i&gt; a&lt;/td&gt;&lt;td&gt;rādīt am/pm. &lt;b&gt;a/ap&lt;/b&gt; tiks aizstāts ar &quot;am&quot; vai &quot;pm&quot;.&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;t&lt;/td&gt;&lt;td&gt;laika josla (piemēram, &quot;CEST&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;nobīde no UTC (piem., &quot;+03:00&quot;)&lt;td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;id IANA laika josla (piemēram, &quot;Europe/Riga&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;laika joslas saīsinājums (piemēram, &quot;MSK&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;laika joslas īsais parādāmais nosaukums (piemēram, &quot;GMT+3&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;laika joslas garais parādāmais nosaukums (piemēram, &quot;Rīga, standarta laiks&quot;)&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;laika joslas pielāgotais nosaukums. Varat to mainīt konfigurācijas loga cilnē &quot;laika joslas&quot;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;br/&gt;&lt;b&gt;Piezīmes.&lt;/b&gt;&lt;ul&gt;&lt;li&gt;Jebkuras rakstzīmes modelī, kas iziet ārpus diapazona [&apos;a&apos; ... &apos;z&apos;] un [&apos;A&apos; ... &apos;Z&apos;] tiks uzskatītas par citētu tekstu pēdiņās. Piemēram rakstzīmes ,&apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; un &apos; @ &apos; tiek parādītas gatavajā laika tekstā, pat tad, ja tās nav ietvertas vienpēdiņās. Vienpēdiņas tiek izmantotas, lai &apos;izbēgtu&apos; burtus. Divas vienpēdiņas pēc kārtas, neatkarīgi vai tās ārpus vai iekšpus citētam tekstam pēdiņās, ir &quot;īstas&quot; vienpēdiņas.&lt;/li&gt;
-&lt;li&gt;Minimālais atsvaidzināšanas intervāls ir 1 sekunde. Ja attēlojumā iekļauts z vai zzz, tad laiks tiek rādīts ar milisekundēm, taču ne atsvaidzināts milisekundēs (lai izvairītos no būtiski samazināta datora produktivitātes krituma).&lt;/li&gt;&lt;/ul&gt;
+&lt;tr&gt;&lt;td&gt;T&lt;/td&gt;&lt;td&gt;nobīde no UTC&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TT&lt;/td&gt;&lt;td&gt;laika joslas IANA id&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTT&lt;/td&gt;&lt;td&gt;laika joslas saīsinājums&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTT&lt;/td&gt;&lt;td&gt;laika joslas īsais attēlojamais nosaukums&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTT&lt;/td&gt;&lt;td&gt;laika joslas garais attēlojamais nosaukums&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;TTTTTT&lt;/td&gt;&lt;td&gt;laika joslas pielāgotais nosaukums. To var mainīt konfigurācijas loga cilnē „Laika joslas”&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;br /&gt;&lt;b&gt;Piezīmes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;Visas šablona rakstzīmes, kas nav diapazonos [&apos;a&apos;..&apos;z&apos;] un [&apos;A&apos;..&apos;Z&apos;], tiks uzskatītas par tekstu pēdiņās. Piemēram, tādas rakstzīmes kā &apos;:&apos;, &apos;.&apos;, &apos; &apos;, &apos;#&apos; un &apos;@&apos; parādīsies iegūtajā laika tekstā, pat ja tās nav ietvertas vienpēdiņās. Vienpēdiņu izmanto, lai burtus uztvertu burtiski. Divas vienpēdiņas pēc kārtas, gan pēdiņās ietvertā virknē, gan ārpus tās, apzīmē &apos;īstu&apos; vienpēdiņu.&lt;/li&gt;&lt;li&gt;Minimālais atjaunināšanas intervāls ir 1 sekunde. Ja konfigurēts z vai zzz, laiks tiek rādīts ar milisekundēm, taču netiek atjaunināts ik milisekundi (lai izvairītos no lielas veiktspējas samazināšanās).&lt;/li&gt;&lt;ul&gt;
 </translation>
     </message>
 </context>

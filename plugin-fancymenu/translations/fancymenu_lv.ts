@@ -6,7 +6,7 @@
     <message>
         <location filename="../lxqtfancymenu.cpp" line="95"/>
         <source>Show/hide main menu</source>
-        <translation>Rādīt/nerādīt galveno izvēlni</translation>
+        <translation>Rādīt/slēpt galveno izvēlni</translation>
     </message>
 </context>
 <context>
@@ -14,12 +14,12 @@
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="50"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Izlase</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuappmap.cpp" line="57"/>
         <source>All Applications</source>
-        <translation type="unfinished"></translation>
+        <translation>Visas lietotnes</translation>
     </message>
 </context>
 <context>
@@ -27,12 +27,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="14"/>
         <source>Fancy Menu Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Fancy Menu iestatījumi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="20"/>
         <source>General</source>
-        <translation>Vispārīgie</translation>
+        <translation>Vispārīgi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="26"/>
@@ -47,22 +47,22 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="67"/>
         <source>Custom font size:</source>
-        <translation>Pielāgots šrifta izmērs:</translation>
+        <translation>Pielāgots fonta izmērs:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="77"/>
         <source> pt</source>
-        <translation> pnkt.</translation>
+        <translation> pt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="90"/>
         <source>Auto-select after:</source>
-        <translation type="unfinished"></translation>
+        <translation>Automātiski atlasīt pēc:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="100"/>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="125"/>
@@ -77,12 +77,12 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="147"/>
         <source>Keyboard Shortcut</source>
-        <translation>Tastatūras īsceļi</translation>
+        <translation>Īsinājumtaustiņš</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="166"/>
         <source>Click the button to record shortcut:</source>
-        <translation>Nospiediet pogu, lai ierakstītu īsceļu:</translation>
+        <translation>Noklikšķiniet uz pogas, lai ierakstītu īsinājumtaustiņu:</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="176"/>
@@ -92,58 +92,59 @@
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="182"/>
         <source>Clear search upon showing menu</source>
-        <translation>Notīrīt meklēšanas lauku, kad tiek rādīta izvēlne</translation>
+        <translation>Rādot izvēlni, notīrīt meklēšanu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="192"/>
         <source>Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Izkārtojums</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="201"/>
         <source>Buttons row position</source>
-        <translation type="unfinished"></translation>
+        <translation>Pogu rindas novietojums</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.ui" line="208"/>
         <source>Categories position</source>
-        <translation type="unfinished"></translation>
+        <translation>Kategoriju novietojums</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="84"/>
         <source>Reset</source>
-        <translation>Atstatīt</translation>
+        <translation>Atiestatīt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="114"/>
         <source>Bottom</source>
-        <translation type="unfinished"></translation>
+        <translation>Apakšā</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="115"/>
         <source>Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Augšā</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="120"/>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation>Pa kreisi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="121"/>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation>Pa labi</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="142"/>
         <source>Modify or add a shortcut to &apos;lxqt-qdbus openmenu&apos;
 in the compositor settings under Wayland</source>
-        <translation type="unfinished"></translation>
+        <translation>Wayland vidē kompozitora iestatījumos mainiet vai pievienojiet
+īsinājumtaustiņu komandai „lxqt-qdbus openmenu”</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="187"/>
         <source>Choose icon file</source>
-        <translation>Izvēlēties ikonas failu</translation>
+        <translation>Izvēlieties ikonas failu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="189"/>
@@ -153,7 +154,7 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="201"/>
         <source>Choose menu file</source>
-        <translation>Izvēlēties izvēlnes failu</translation>
+        <translation>Izvēlieties izvēlnes failu</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuconfiguration.cpp" line="203"/>
@@ -171,27 +172,27 @@ in the compositor settings under Wayland</source>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="161"/>
         <source>LXQt Configuration Center</source>
-        <translation type="unfinished"></translation>
+        <translation>LXQt konfigurācijas centrs</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="167"/>
         <source>Leave</source>
-        <translation type="unfinished"></translation>
+        <translation>Iziet</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="173"/>
         <source>About LXQt</source>
-        <translation type="unfinished"></translation>
+        <translation>Par LXQt</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="191"/>
         <source>Add your favorites by right clicking items from categories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pievienojiet izlasei vienumus, ar labo klikšķi noklikšķinot uz tiem kategorijās.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="357"/>
         <source>Add to desktop</source>
-        <translation>Likt uz darbvirsmas</translation>
+        <translation>Pievienot darbvirsmai</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="365"/>
@@ -202,8 +203,8 @@ in the compositor settings under Wayland</source>
         <location filename="../lxqtfancymenuwindow.cpp" line="366"/>
         <source>A file with the same name already exists.
 Do you want to overwrite it?</source>
-        <translation>Fails ar šādu nosaukumu jau pastāv.
-Vēlaties tam pārrakstīt pa virsu?</translation>
+        <translation>Fails ar tādu pašu nosaukumu jau pastāv.
+Vai vēlaties to pārrakstīt?</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="372"/>
@@ -213,7 +214,7 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="373"/>
         <source>The file cannot be overwritten.</source>
-        <translation>Fails nevar tikt pārrakstīts (pa virsu).</translation>
+        <translation>Failu nevar pārrakstīt.</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="380"/>
@@ -223,22 +224,22 @@ Vēlaties tam pārrakstīt pa virsu?</translation>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="393"/>
         <source>Remove from Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Noņemt no izlases</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="400"/>
         <source>Add to Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Pievienot izlasei</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="717"/>
         <source>No Executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Nav izpildāmā faila</translation>
     </message>
     <message>
         <location filename="../lxqtfancymenuwindow.cpp" line="718"/>
         <source>Cannot find &lt;b&gt;%1&lt;/b&gt; executable.</source>
-        <translation type="unfinished"></translation>
+        <translation>Neizdevās atrast izpildāmo failu &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
 </context>
 </TS>

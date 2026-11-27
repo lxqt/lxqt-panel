@@ -6,17 +6,17 @@
     <message>
         <location filename="../showdesktop.cpp" line="46"/>
         <source>Show desktop</source>
-        <translation>Parādīt darbvirsmu</translation>
+        <translation>Rādīt darbvirsmu</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="90"/>
         <source>Show Desktop: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Rādīt darbvirsmu: globālā saīsne &apos;%1 &apos; nevar tikt reģistrēta</translation>
+        <translation>Rādīt darbvirsmu: neizdevās reģistrēt globālo īsinājumtaustiņu „%1”</translation>
     </message>
     <message>
         <location filename="../showdesktop.cpp" line="53"/>
         <source>Show Desktop</source>
-        <translation>Parādīt darbvirsmu</translation>
+        <translation>Rādīt darbvirsmu</translation>
     </message>
 </context>
 </TS>

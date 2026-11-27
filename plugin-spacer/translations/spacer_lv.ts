@@ -6,17 +6,17 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="14"/>
         <source>Spacer Settings</source>
-        <translation>Atdalītāja iestatījumi</translation>
+        <translation>Atstarpes iestatījumi</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="20"/>
         <source>Space width:</source>
-        <translation>Atdalītāja platums:</translation>
+        <translation>Atstarpes platums:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="54"/>
         <source>Space type:</source>
-        <translation>Atdalītāja tips:</translation>
+        <translation>Atstarpes tips:</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.ui" line="27"/>
@@ -26,12 +26,12 @@
     <message>
         <location filename="../spacerconfiguration.ui" line="47"/>
         <source>expandable</source>
-        <translation>paplašināms/stiepjams</translation>
+        <translation>izplešams</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="34"/>
         <source>lined</source>
-        <translation>līnijots</translation>
+        <translation>ar līniju</translation>
     </message>
     <message>
         <location filename="../spacerconfiguration.cpp" line="35"/>

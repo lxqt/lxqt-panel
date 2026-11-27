@@ -6,7 +6,7 @@
     <message>
         <location filename="../button.cpp" line="38"/>
         <source>Removable media/devices manager</source>
-        <translation>Noņemamo datu nesēju/ierīču pārvaldnieks</translation>
+        <translation>Noņemamo datu nesēju un ierīču pārvaldnieks</translation>
     </message>
 </context>
 <context>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../configuration.ui" line="14"/>
         <source>Removable Media Settings</source>
-        <translation>Noņemamo ierīču iestatījumi</translation>
+        <translation>Noņemamo datu nesēju iestatījumi</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="20"/>
@@ -24,27 +24,27 @@
     <message>
         <location filename="../configuration.ui" line="32"/>
         <source>When a device is connected:</source>
-        <translation>Kad ierīce ir pievienota:</translation>
+        <translation>Kad pievienota ierīce:</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="42"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Trigger the following action when eject shortcut is pressed (&lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt; by default)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p &gt; Veikt šādu darbību, kad tiek nospiesta izgrūšanas saīsne (&lt;span style=&quot; font-weight:600;&quot;&gt; XF86Eject&lt;/span&gt; pēc noklusējuma)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Veikt šo darbību, kad nospiests izgrūšanas īsinājumtaustiņš (pēc noklusējuma &lt;span style=&quot; font-weight:600;&quot;&gt;XF86Eject&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../configuration.ui" line="45"/>
         <source>When eject button is pressed:</source>
-        <translation>Kad tiek nospiesta izgrūšanas poga:</translation>
+        <translation>Kad nospiesta izgrūšanas poga:</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="65"/>
         <source>Popup menu</source>
-        <translation>Parādīt izvēlni</translation>
+        <translation>Uznirstošā izvēlne</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="67"/>
         <source>Show info</source>
-        <translation>Parādīt info</translation>
+        <translation>Rādīt informāciju</translation>
     </message>
     <message>
         <location filename="../configuration.cpp" line="68"/>
@@ -55,7 +55,7 @@
     <message>
         <location filename="../configuration.cpp" line="71"/>
         <source>Eject All Optical Drives</source>
-        <translation>Izstumt visus optiskos diskus</translation>
+        <translation>Izgrūst visus optiskos diskdziņus</translation>
     </message>
 </context>
 <context>
@@ -63,17 +63,17 @@
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="40"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is connected.</source>
-        <translation>Ierīce &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; ir piemontēta.</translation>
+        <translation>Ierīce &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt; ir pievienota.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="45"/>
         <source>The device &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; is removed.</source>
-        <translation>Ierīce &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; ir nomontēta.</translation>
+        <translation>Ierīce &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt; ir atvienota.</translation>
     </message>
     <message>
         <location filename="../actions/deviceaction_info.cpp" line="50"/>
         <source>Removable media/devices manager</source>
-        <translation>Noņemamo datu nesēju/ierīču pārvaldnieks</translation>
+        <translation>Noņemamo datu nesēju un ierīču pārvaldnieks</translation>
     </message>
 </context>
 <context>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Removable media/devices manager</source>
-        <translation>Noņemamo datu nesēju / ierīču pārvaldnieks</translation>
+        <translation>Noņemamo datu nesēju un ierīču pārvaldnieks</translation>
     </message>
     <message>
         <location filename="../actions/ejectaction_optical.cpp" line="59"/>
         <source>Ejected all optical drives</source>
-        <translation>Izstumt visus optiskos diskus</translation>
+        <translation>Visi optiskie diskdziņi izgrūsti</translation>
     </message>
 </context>
 <context>
@@ -94,12 +94,12 @@
     <message>
         <location filename="../lxqtmountplugin.cpp" line="81"/>
         <source>Removable media/devices manager: Global shortcut &apos;%1&apos; cannot be registered</source>
-        <translation>Noņemamo datu nesēju / ierīču pārvaldnieks: globālo saīsni &apos;%1 &apos; nevar reģistrēt</translation>
+        <translation>Noņemamo datu nesēju un ierīču pārvaldnieks: neizdevās reģistrēt globālo īsinājumtaustiņu „%1”</translation>
     </message>
     <message>
         <location filename="../lxqtmountplugin.cpp" line="127"/>
         <source>Eject removable media</source>
-        <translation>Izgrūst/nomontēt noņemamos datu nesējus</translation>
+        <translation>Izgrūst noņemamos datu nesējus</translation>
     </message>
 </context>
 <context>
@@ -107,18 +107,18 @@
     <message>
         <location filename="../menudiskitem.cpp" line="156"/>
         <source>Mounting of &lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; failed: %2</source>
-        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; neizdevās piemontēt: %2</translation>
+        <translation>Neizdevās montēt &lt;b&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/b&gt;: %2</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="158"/>
         <location filename="../menudiskitem.cpp" line="179"/>
         <source>Removable media/devices manager</source>
-        <translation>Noņemamo datu nesēju/ierīču pārvaldnieks</translation>
+        <translation>Noņemamo datu nesēju un ierīču pārvaldnieks</translation>
     </message>
     <message>
         <location filename="../menudiskitem.cpp" line="177"/>
         <source>Unmounting of &lt;strong&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/strong&gt; failed: %2</source>
-        <translation>&lt;b&gt;&lt;nobr&gt;&quot;%1&quot;&lt;/nobr&gt;&lt;/b&gt; neizdevās nomontēt: %2</translation>
+        <translation>Neizdevās atmontēt &lt;strong&gt;&lt;nobr&gt;„%1”&lt;/nobr&gt;&lt;/strong&gt;: %2</translation>
     </message>
 </context>
 <context>
