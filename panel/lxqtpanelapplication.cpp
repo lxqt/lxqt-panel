@@ -415,9 +415,9 @@ LXQtPanelApplication::LXQtPanelApplication(int& argc, char** argv)
 
         addPanel(i);
     }
-    // if no panel can be added on Wayland, forcefully add the first one
+    // if there is no panel for any screen on Wayland, add a new panel
     if (mPanels.isEmpty())
-        addPanel(panels.at(0));
+        addNewPanel();
 }
 
 LXQtPanelApplication::~LXQtPanelApplication()
