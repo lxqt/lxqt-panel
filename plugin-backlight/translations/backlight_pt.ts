@@ -6,7 +6,7 @@
     <message>
         <location filename="../backlight.cpp" line="131"/>
         <source>Backlight: %1%</source>
-        <translation type="unfinished"></translation>
+        <translation>Retroiluminação: %1%</translation>
     </message>
 </context>
 </TS>
